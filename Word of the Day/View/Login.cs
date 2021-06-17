@@ -75,8 +75,7 @@ namespace Word_of_the_Day.View
 
         private void loginPw_KeyDown(object sender, KeyEventArgs e)
         {
-            if (loginPw.TextLength == 0) loginBtn.Enabled = false;
-            else                         loginBtn.Enabled = true;
+            loginBtn.Enabled = (loginPw.TextLength == 0)? false : true;
 
             if (e.KeyCode == Keys.Enter)
             {

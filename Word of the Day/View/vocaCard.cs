@@ -13,10 +13,6 @@ namespace Word_of_the_Day.View
 {
     public partial class vocaCard : Form
     {
-        vocaCard()
-        {
-            InitializeComponent();
-        }
 
         public vocaCard(string vocaName, string vocaMeaning)
         {

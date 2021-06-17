@@ -229,12 +229,6 @@ namespace Word_of_the_Day
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(driver != null) driver.Quit();
-            Dispose(true);
-        }
-
         private void homeBtn_Click(object sender, EventArgs e)
         {
             changePage(homeBtn.Top, homeBtn.Height, "H");
@@ -390,42 +384,6 @@ namespace Word_of_the_Day
             changePage(alarmBtn.Top, alarmBtn.Height, "A");
         }
 
-        private void changePage(int top, int height, string type)
-        {
-
-            if(type != "T" && vocaTestGrid.DataSource != null)
-            {
-                DialogResult r = MessageBox.Show("다른 탭으로 이동시 진행중인 테스트가 초기화됩니다. 계속 진행하시겠습니까?", "경고", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-                if (r == DialogResult.Cancel)
-                    return; 
-
-                vocaTestGrid.DataSource = null;
-                makeTestBtn.Enabled = false;
-            }
-
-            pnlNav.Top = top;
-            pnlNav.Height = height;
-
-            if(type != "H" && loginUserId == null)
-            {
-                MessageBox.Show("로그인한 사용자만 이용할 수 있는 기능입니다.");
-            }
-
-            vocaInput.Text = "";
-            vacaMeaningInput.Text = "";
-
-            homeBtn.BackColor = ("H" == type) ? btnClickColor : btnLeaveColor;
-            vocaBtn.BackColor = ("V" == type) ? btnClickColor : btnLeaveColor;
-            vocaTestBtn.BackColor = ("T" == type) ? btnClickColor : btnLeaveColor;
-            alarmBtn.BackColor = ("A" == type) ? btnClickColor : btnLeaveColor;
-
-            literatureArea.Visible = ("H" == type) ? true : false;
-            vocaNoteArea.Visible = ("V" == type) ? true : false;
-            vocaTestArea.Visible = ("T" == type) ? true : false;
-            alarmArea.Visible = ("A" == type) ? true : false;
-        }
-
         private void setAlramBtn_Click(object sender, EventArgs e)
         {
 
@@ -525,6 +483,49 @@ namespace Word_of_the_Day
             .AddText("오늘도 영문 칼럼 기사가 업데이트되었습니다.")
             .Show();
         }
+
+        private void changePage(int top, int height, string type)
+        {
+
+            if (type != "T" && vocaTestGrid.DataSource != null)
+            {
+                DialogResult r = MessageBox.Show("다른 탭으로 이동시 진행중인 테스트가 초기화됩니다. 계속 진행하시겠습니까?", "경고", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (r == DialogResult.Cancel)
+                    return;
+
+                vocaTestGrid.DataSource = null;
+                makeTestBtn.Enabled = false;
+            }
+
+            pnlNav.Top = top;
+            pnlNav.Height = height;
+
+            if (type != "H" && loginUserId == null)
+            {
+                MessageBox.Show("로그인한 사용자만 이용할 수 있는 기능입니다.");
+            }
+
+            vocaInput.Text = "";
+            vacaMeaningInput.Text = "";
+
+            homeBtn.BackColor = ("H" == type) ? btnClickColor : btnLeaveColor;
+            vocaBtn.BackColor = ("V" == type) ? btnClickColor : btnLeaveColor;
+            vocaTestBtn.BackColor = ("T" == type) ? btnClickColor : btnLeaveColor;
+            alarmBtn.BackColor = ("A" == type) ? btnClickColor : btnLeaveColor;
+
+            literatureArea.Visible = ("H" == type) ? true : false;
+            vocaNoteArea.Visible = ("V" == type) ? true : false;
+            vocaTestArea.Visible = ("T" == type) ? true : false;
+            alarmArea.Visible = ("A" == type) ? true : false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (driver != null) driver.Quit();
+            Dispose(true);
+        }
+
         private void accountBtn_Click(object sender, EventArgs e)
         {
             Login loginForm = new Login(this);
@@ -620,11 +621,6 @@ namespace Word_of_the_Day
         private void subscribeN_Click(object sender, EventArgs e)
         {
             setAlramBtn.Enabled = false;
-        }
-
-        private void menuArea_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)

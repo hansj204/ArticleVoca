@@ -96,17 +96,6 @@ namespace Word_of_the_Day.View
             }
         }
 
-        private void formExit()
-        {
-            this.Hide();
-            login.Show();
-        }
-
-        private void Register_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formExit();
-        }
-
         private void showPwdBtn_Click(object sender, EventArgs e)
         {
             if (newPw.PasswordChar == default(char))
@@ -122,5 +111,15 @@ namespace Word_of_the_Day.View
 
         }
 
+        private void formExit()
+        {
+            this.Hide();
+            login.Show();
+        }
+
+        private void Register_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formExit();
+        }
     }
 }

@@ -36,10 +36,5 @@ namespace Word_of_the_Day.View
             mainForm.paintVocaTest("M");
             this.Hide();
         }
-
-        private void vocaTestDialog_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

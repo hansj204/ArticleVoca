@@ -91,7 +91,6 @@ namespace Word_of_the_Day.View
             this.Name = "vocaTestDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "테스트 타입 선택";
-            this.Load += new System.EventHandler(this.vocaTestDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

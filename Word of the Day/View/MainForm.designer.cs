@@ -106,7 +106,6 @@
             this.menuArea.Name = "menuArea";
             this.menuArea.Size = new System.Drawing.Size(217, 605);
             this.menuArea.TabIndex = 0;
-            this.menuArea.Paint += new System.Windows.Forms.PaintEventHandler(this.menuArea_Paint);
             // 
             // pnlNav
             // 
